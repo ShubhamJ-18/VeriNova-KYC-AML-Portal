@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeriNova KYC & AML Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <h2>VeriNova KYC & AML Portal</h2>
+    <p>Unified Compliance Platform for Banks & FinTechs</p>
+</header>
+
+<!-- MAIN -->
+<main>
+
+    <!-- BANK SELECTION -->
+    <section class="card">
+        <h3>Select Bank</h3>
+        <select>
+            <option>State Bank of India</option>
+            <option>HDFC Bank</option>
+            <option>ICICI Bank</option>
+            <option>Axis Bank</option>
+        </select>
+    </section>
+
+    <!-- CUSTOMER DETAILS -->
+    <section class="card">
+        <h3>Customer Details</h3>
+        <input type="text" placeholder="Customer ID">
+        <input type="text" placeholder="Account Number">
+    </section>
+
+    <!-- DOCUMENT UPLOAD -->
+    <section class="card">
+        <h3>Document Upload</h3>
+        <input type="file">
+        <p class="note">PAN / Aadhaar / Driving License</p>
+    </section>
+
+    <!-- VIDEO KYC -->
+    <section class="card">
+        <h3>Video KYC Verification</h3>
+        <p class="note">Plain background, single person, clear audio</p>
+
+        <video id="video" autoplay muted></video>
+
+        <div class="btn-group">
+            <button onclick="startCamera()">Start Video</button>
+            <button onclick="runKYC()">Run KYC</button>
+        </div>
+
+        <ul class="status-list">
+            <li id="face">Face Match: Pending</li>
+            <li id="person">Single Person: Pending</li>
+            <li id="bg">Background: Pending</li>
+            <li id="audio">Audio Quality: Pending</li>
+        </ul>
+
+        <p id="finalKYC" class="final-status">KYC Status: Pending</p>
+    </section>
+
+    <!-- AML TRANSACTION MONITORING -->
+    <section class="card">
+        <h3>AML Transaction Monitoring</h3>
+
+        <table>
+            <tr>
+                <th>Account No</th>
+                <th>Amount (₹)</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>XXXX1234</td>
+                <td>45,000</td>
+                <td class="ok">Normal</td>
+            </tr>
+            <tr>
+                <td>XXXX1234</td>
+                <td>2,50,000</td>
+                <td class="risk">High Risk</td>
+            </tr>
+        </table>
+
+        <button onclick="checkAML()">Re-evaluate Transactions</button>
+
+        <p id="amlResult" class="final-status">AML Status: Review Required</p>
+    </section>
+
+    <!-- DASHBOARD -->
+    <section class="card">
+        <h3>Compliance Dashboard</h3>
+        <p>KYC Status: <span id="dashKYC">Pending</span></p>
+        <p>AML Status: <span id="dashAML">Pending</span></p>
+    </section>
+
+</main>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
